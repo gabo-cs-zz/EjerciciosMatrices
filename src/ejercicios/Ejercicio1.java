@@ -19,6 +19,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
      */
     public Ejercicio1() {
         initComponents();
+        txtNumeroFilasYColumnas.setEditable(true);
         cmdCrear.setEnabled(true);
         cmdLlenar.setEnabled(false);
         cmdCalcular.setEnabled(false);
@@ -55,7 +56,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("MATRIZ - DIAGONAL SECUNDARIA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos iniciales:"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,6 +91,11 @@ public class Ejercicio1 extends javax.swing.JFrame {
 
         cmdLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 63, 75, 30));
 
         cmdCalcular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -113,7 +119,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTablaResultado);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 250, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 250, 190));
 
         tblTablaInicial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,20 +131,20 @@ public class Ejercicio1 extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTablaInicial);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 250, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 250, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(659, 494));
+        setSize(new java.awt.Dimension(641, 473));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -157,11 +163,13 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 txtNumeroFilasYColumnas.requestFocusInWindow();
             }
             else {
+                JOptionPane.showMessageDialog(this, "Matriz creada exitosamente.");
                 tm.setRowCount(nf);
                 tm.setColumnCount(nc);
                 tm2.setRowCount(nf);
                 tm2.setColumnCount(nc);
-                JOptionPane.showMessageDialog(this, "Tabla creada exitosamente.");
+                txtNumeroFilasYColumnas.setEditable(false);
+                cmdCrear.setEnabled(false);
                 cmdLlenar.setEnabled(true);
                 cmdLimpiar.setEnabled(true);
             }
@@ -194,12 +202,30 @@ public class Ejercicio1 extends javax.swing.JFrame {
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
                 aux = (int)tblTablaInicial.getValueAt(i, j);
-                if (i == nc - nf) {
+                if (i == (nc-1) - j) {
                     tblTablaResultado.setValueAt(aux, i, j);
                 }
             }
         }
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tm, tm2;
+        tm = (DefaultTableModel) tblTablaInicial.getModel();
+        tm2 = (DefaultTableModel) tblTablaResultado.getModel();
+        tm.setRowCount(0);
+        tm.setColumnCount(0);
+        tm2.setRowCount(0);
+        tm2.setColumnCount(0);
+        txtNumeroFilasYColumnas.setEditable(true);
+        cmdCrear.setEnabled(true);
+        cmdLlenar.setEnabled(false);
+        cmdCalcular.setEnabled(false);
+        cmdLimpiar.setEnabled(false);
+        txtNumeroFilasYColumnas.setText("");
+        txtNumeroFilasYColumnas.requestFocusInWindow();
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
