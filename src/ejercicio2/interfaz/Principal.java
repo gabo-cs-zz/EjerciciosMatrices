@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejercicio1.interfaz;
+package ejercicio2.interfaz;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -55,7 +55,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("MATRIZ - DIAGONAL SECUNDARIA");
+        jLabel2.setText("MATRIZ - TRIANGULAR SUPERIOR");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos iniciales:"));
@@ -196,17 +196,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         // TODO add your handling code here:
-        int nf, nc, aux;
-        nf = tblTablaInicial.getRowCount();
-        nc = tblTablaInicial.getColumnCount();
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int)tblTablaInicial.getValueAt(i, j);
-                if (i == (nc-1) - j) {
-                    tblTablaResultado.setValueAt(aux, i, j);
-                }
-            }
-        }
+        
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
