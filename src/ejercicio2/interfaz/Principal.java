@@ -157,7 +157,12 @@ public class Principal extends javax.swing.JFrame {
             nc = nf;
             tm = (DefaultTableModel) tblTablaInicial.getModel();
             tm2 = (DefaultTableModel) tblTablaResultado.getModel();
-            if (nf > 10) {
+            if (nf < 2) {
+                JOptionPane.showMessageDialog(this, "Por favor considere 2 como el número mínimo para filas y columnas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                txtNumeroFilasYColumnas.setText("");
+                txtNumeroFilasYColumnas.requestFocusInWindow();
+            }
+            else if (nf > 10) {
                 JOptionPane.showMessageDialog(this, "Por favor considere 10 como el número máximo para filas y columnas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 txtNumeroFilasYColumnas.setText("");
                 txtNumeroFilasYColumnas.requestFocusInWindow();
