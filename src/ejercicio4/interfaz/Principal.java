@@ -21,7 +21,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         txtNumeroFilas.setEditable(true);
         cmdCrear.setEnabled(true);
-        cmdLlenar.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
         cmdCalcular.setEnabled(false);
         cmdLimpiar.setEnabled(false);
     }
@@ -44,7 +44,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cmdCrear = new javax.swing.JButton();
-        cmdLlenar = new javax.swing.JButton();
+        cmdLlenarAuto = new javax.swing.JButton();
         cmdLimpiar = new javax.swing.JButton();
         cmdCalcular = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -87,14 +87,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 27, 75, 30));
 
-        cmdLlenar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmdLlenar.setText("LlenarAuto");
-        cmdLlenar.addActionListener(new java.awt.event.ActionListener() {
+        cmdLlenarAuto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmdLlenarAuto.setText("LlenarAuto");
+        cmdLlenarAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdLlenarActionPerformed(evt);
+                cmdLlenarAutoActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 27, 100, 30));
+        jPanel3.add(cmdLlenarAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 27, 100, 30));
 
         cmdLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdLimpiar.setText("Limpiar");
@@ -179,7 +179,7 @@ public class Principal extends javax.swing.JFrame {
                 txtNumeroFilas.setEditable(false);
                 txtNumeroColumnas.setEditable(false);
                 cmdCrear.setEnabled(false);
-                cmdLlenar.setEnabled(true);
+                cmdLlenarAuto.setEnabled(true);
                 cmdLimpiar.setEnabled(true);
             }
         } catch(NumberFormatException e){
@@ -191,7 +191,7 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cmdCrearActionPerformed
 
-    private void cmdLlenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarActionPerformed
+    private void cmdLlenarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarAutoActionPerformed
         // TODO add your handling code here:
         int nf, nc, n;
         nf = tblTablaInicial.getRowCount();
@@ -203,7 +203,7 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         cmdCalcular.setEnabled(true);
-    }//GEN-LAST:event_cmdLlenarActionPerformed
+    }//GEN-LAST:event_cmdLlenarAutoActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         // TODO add your handling code here:
@@ -232,7 +232,7 @@ public class Principal extends javax.swing.JFrame {
         txtNumeroFilas.setEditable(true);
         txtNumeroColumnas.setEditable(true);
         cmdCrear.setEnabled(true);
-        cmdLlenar.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
         cmdCalcular.setEnabled(false);
         cmdLimpiar.setEnabled(false);
         txtNumeroFilas.setText("");
@@ -279,7 +279,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cmdCalcular;
     private javax.swing.JButton cmdCrear;
     private javax.swing.JButton cmdLimpiar;
-    private javax.swing.JButton cmdLlenar;
+    private javax.swing.JButton cmdLlenarAuto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
