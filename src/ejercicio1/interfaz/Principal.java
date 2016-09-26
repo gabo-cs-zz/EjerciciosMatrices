@@ -81,13 +81,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 27, 75, 30));
 
         cmdLlenar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmdLlenar.setText("Llenar");
+        cmdLlenar.setText("LlenarAuto");
         cmdLlenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdLlenarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 27, 75, 30));
+        jPanel3.add(cmdLlenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 27, 100, 30));
 
         cmdLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdLimpiar.setText("Limpiar");
@@ -96,7 +96,7 @@ public class Principal extends javax.swing.JFrame {
                 cmdLimpiarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 63, 75, 30));
+        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 63, 100, 30));
 
         cmdCalcular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdCalcular.setText("Calcular");
@@ -187,7 +187,7 @@ public class Principal extends javax.swing.JFrame {
         nc = tblTablaInicial.getColumnCount();
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
-                n = (int) (Math.random() * 50 + 1);
+                n = (int)(Math.random() * 50 + 1);
                 tblTablaInicial.setValueAt(n, i, j);
             }
         }
@@ -202,7 +202,7 @@ public class Principal extends javax.swing.JFrame {
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
                 aux = (int)tblTablaInicial.getValueAt(i, j);
-                if (i == (nc-1) - j) {
+                if (i == (nf-1) - j) {
                     tblTablaResultado.setValueAt(aux, i, j);
                 }
             }
