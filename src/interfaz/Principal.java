@@ -78,7 +78,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 95, -1, -1));
         jPanel2.add(txtNumeroColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 55, 50, 25));
 
-        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Secundaria", "Triangular Superior", "Triangular Infreior", "MatrizTraspuesta", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Secundaria", "Triangular Superior", "Triangular Inferior", "MatrizTraspuesta", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
         jPanel2.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 150, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -178,46 +178,51 @@ public class Principal extends javax.swing.JFrame {
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
         // TODO add your handling code here:
         try {
-            int nc, nf;
+            int nc, nf, op;
             DefaultTableModel tm, tm2;
             nf = Integer.parseInt(txtNumeroFilas.getText());
             nc = Integer.parseInt(txtNumeroColumnas.getText());
             tm = (DefaultTableModel) tblTablaInicial.getModel();
             tm2 = (DefaultTableModel) tblTablaResultado.getModel();
+            op = cmbOperacion.getSelectedIndex();
             if (nf < 2 || nc < 2) {
-                JOptionPane.showMessageDialog(this, "Por favor considere 2 como el número mínimo para filas y columnas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                Helper.mensaje(this, "Por favor considere 2 como el mínimo para filas y columnas.", 2);
                 txtNumeroFilas.setText("");
                 txtNumeroColumnas.setText("");
                 txtNumeroFilas.requestFocusInWindow();
-            } else if (nf > 10 || nc > 10) {
-                JOptionPane.showMessageDialog(this, "Por favor considere 10 como el número máximo para filas y columnas.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+            else if (nf > 10 || nc > 10) {
+                Helper.mensaje(this, "Por favor considere 10 como el máximo para filas y columnas.", 2);
                 txtNumeroFilas.setText("");
                 txtNumeroColumnas.setText("");
                 txtNumeroFilas.requestFocusInWindow();
-            } else if (cmbOperacion.getSelectedIndex() < 3 && nf != nc) {
-                JOptionPane.showMessageDialog(this, "Para la operación elegida, el número de filas debe ser igual al número de columnas.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            else if ((nf != nc) && op < 3) {
+                Helper.mensaje(this, "Para la operación elegida, el número de filas debe ser igual al número de columnas.", 3);
                 txtNumeroFilas.setText("");
                 txtNumeroColumnas.setText("");
                 txtNumeroFilas.requestFocusInWindow();
-            } else if (cmbOperacion.getSelectedIndex() == 3) {
-                JOptionPane.showMessageDialog(this, "Matriz creada exitosamente.");
-                tm.setRowCount(nf);
-                tm.setColumnCount(nc);
-                tm2.setRowCount(nc);
-                tm2.setColumnCount(nf);
-                txtNumeroFilas.setEditable(false);
-                txtNumeroColumnas.setEditable(false);
-                JButton botonesT[] = {cmdCalcular, cmdLlenadoManual, cmdLlenadoAuto, cmdLimpiar};
-                JButton botonesF[] = {cmdCrear};
-                Helper.habilitarBotones(botonesT);
-                Helper.deshabilitarBotones(botonesF);
+            }
+            else if (op == 4 && (nf < 4 || nc < 4)) {
+                Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra A.", 2);
+                txtNumeroFilas.setText("");
+                txtNumeroColumnas.setText("");
+                txtNumeroFilas.requestFocusInWindow();
             }
             else {
-                JOptionPane.showMessageDialog(this, "Matriz creada exitosamente.");
-                tm.setRowCount(nf);
-                tm.setColumnCount(nc);
-                tm2.setRowCount(nf);
-                tm2.setColumnCount(nc);
+                Helper.mensaje(this, "Matriz creada exitosamente.", 1);
+                if (op == 3) {
+                    tm.setRowCount(nf);
+                    tm.setColumnCount(nc);
+                    tm2.setRowCount(nc);
+                    tm2.setColumnCount(nf);
+                }
+                else {
+                    tm.setRowCount(nf);
+                    tm.setColumnCount(nc);
+                    tm2.setRowCount(nf);
+                    tm2.setColumnCount(nc);
+                }
                 txtNumeroFilas.setEditable(false);
                 txtNumeroColumnas.setEditable(false);
                 JButton botonesT[] = {cmdLlenadoManual, cmdLlenadoAuto, cmdLimpiar};
@@ -226,7 +231,7 @@ public class Principal extends javax.swing.JFrame {
                 Helper.deshabilitarBotones(botonesF);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Campo(s) Inválido(s).", "ERROR", JOptionPane.ERROR_MESSAGE);
+            Helper.mensaje(this, "Campo(s) Inválido(s).", 3);
             txtNumeroFilas.setText("");
             txtNumeroColumnas.setText("");
             txtNumeroFilas.requestFocusInWindow();
@@ -238,7 +243,7 @@ public class Principal extends javax.swing.JFrame {
         int nf, nc, n;
         nf = tblTablaInicial.getRowCount();
         nc = tblTablaInicial.getColumnCount();
-        JOptionPane.showMessageDialog(this, "Matriz llenada exitosamente.");
+        Helper.mensaje(this, "Matriz llenada exitosamente.", 1);
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
                 n = (int) (Math.random() * 50 + 1);
@@ -269,10 +274,12 @@ public class Principal extends javax.swing.JFrame {
             case 3:
                 Helper.matrizTraspuesta(tblTablaInicial, tblTablaResultado);
                 break;
+            case 4:
+                Helper.letraA(tblTablaInicial, tblTablaResultado);
+                break;
         }
-        cmdCalcular.setEnabled(false);
-        JButton botonesT[] = {cmdCalcular, cmdLimpiar};
-        JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
+        JButton botonesT[] = {cmdLimpiar};
+        JButton botonesF[] = {cmdCalcular, cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
         Helper.habilitarBotones(botonesT);
         Helper.deshabilitarBotones(botonesF);
 
@@ -313,7 +320,7 @@ public class Principal extends javax.swing.JFrame {
                     } catch (NullPointerException e) {
                         res = JOptionPane.showConfirmDialog(this, "¿Estás seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
                         if (res == 0) {
-                            JOptionPane.showMessageDialog(this, "Debe llenar la matriz.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                            Helper.mensaje(this, "Debe llenar la matriz.", 2);
                             sw = 1;
                             i = nf;
                             j = nc;
@@ -334,7 +341,7 @@ public class Principal extends javax.swing.JFrame {
             cmdLlenadoManual.setEnabled(true);
         }
         else {
-            JOptionPane.showMessageDialog(this, "Matriz llenada exitosamente.");
+            Helper.mensaje(this, "Matriz llenada exitosamente.", 1);
             cmdLlenadoAuto.setEnabled(false);
             cmdLlenadoManual.setEnabled(false);
         }//

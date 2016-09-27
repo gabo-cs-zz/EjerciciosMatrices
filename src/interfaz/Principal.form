@@ -122,7 +122,7 @@
                   <StringArray count="15">
                     <StringItem index="0" value="Diagonal Secundaria"/>
                     <StringItem index="1" value="Triangular Superior"/>
-                    <StringItem index="2" value="Triangular Infreior"/>
+                    <StringItem index="2" value="Triangular Inferior"/>
                     <StringItem index="3" value="MatrizTraspuesta"/>
                     <StringItem index="4" value="Letra A"/>
                     <StringItem index="5" value="Letra Z"/>
