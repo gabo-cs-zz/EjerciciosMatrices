@@ -329,6 +329,14 @@ public class Principal extends javax.swing.JFrame {
                     Helper.letraF(tblTablaInicial, tblTablaResultado);
                 }
                 break;
+            case 10:
+                if (nf < 4 || nc < 4) {
+                    Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra P.", 2);
+                }
+                else {
+                    Helper.letraP(tblTablaInicial, tblTablaResultado);
+                }
+                break;
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
