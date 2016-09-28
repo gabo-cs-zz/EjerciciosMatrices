@@ -337,6 +337,14 @@ public class Principal extends javax.swing.JFrame {
                     Helper.letraP(tblTablaInicial, tblTablaResultado);
                 }
                 break;
+            case 11:
+                if (nc % 2 == 0) {
+                    Helper.mensaje(this, "Por favor considere impar el número de columnas  para visualizar mejor la letra I.", 2);
+                }
+                else {
+                    Helper.letraI(tblTablaInicial, tblTablaResultado);
+                }
+                break;
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
