@@ -296,6 +296,14 @@ public class Principal extends javax.swing.JFrame {
                     Helper.letraT(tblTablaInicial, tblTablaResultado);
                 }
                 break;
+            case 7:
+                if ((nf*2 - 1) != nc ) {
+                    Helper.mensaje(this, "Aségurese de que se pueda visalizar la letra V correctamente.", 3);
+                }
+                else {
+                    Helper.letraV(tblTablaInicial, tblTablaResultado);
+                }
+                break;
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
