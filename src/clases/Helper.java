@@ -118,7 +118,35 @@ public class Helper {
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
                 aux = (int) tabla1.getValueAt(i, j);
-                if (j == 0 || j == (nc - 1) || i == 0 || i == (nf / 2)) {
+                if (j == 0 || i == 0 || j == (nc - 1) || i == (nf/2)) {
+                    tabla2.setValueAt(aux, i, j);
+                }
+            }
+        }
+    }
+    
+    public static void letraZ(JTable tabla1, JTable tabla2) {
+        int nf, nc, aux;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (i == 0 || i == (nf - 1) - j || i == nf - 1) {
+                    tabla2.setValueAt(aux, i, j);
+                }
+            }
+        }
+    }
+    
+    public static void letraT(JTable tabla1, JTable tabla2) {
+        int nf, nc, aux;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (i == 0 || j == (nc/2)) {
                     tabla2.setValueAt(aux, i, j);
                 }
             }

@@ -21,7 +21,6 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        txtNumeroFilas.setEditable(true);
         JButton botonesT[] = {cmdCrear, cmdLimpiar};
         JButton botonesF[] = {cmdLlenadoManual, cmdLlenadoAuto, cmdCalcular};
         Helper.habilitarBotones(botonesT);
@@ -42,28 +41,28 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNumeroFilas = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         txtNumeroColumnas = new javax.swing.JTextField();
-        cmbOperacion = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cmdCrear = new javax.swing.JButton();
         cmdLlenadoAuto = new javax.swing.JButton();
         cmdLimpiar = new javax.swing.JButton();
-        cmdCalcular = new javax.swing.JButton();
         cmdLlenadoManual = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTablaResultado = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaInicial = new javax.swing.JTable();
+        cmbOperacion = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cmdCalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("MATRICES - OPERACIONES");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos iniciales:"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,59 +71,40 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("No. de filas:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 25, -1, -1));
         jPanel2.add(txtNumeroFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 22, 50, 25));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Operación:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 95, -1, -1));
         jPanel2.add(txtNumeroColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 55, 50, 25));
-
-        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Secundaria", "Triangular Superior", "Triangular Inferior", "MatrizTraspuesta", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
-        jPanel2.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 150, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("No. de columnas:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 250, 160));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 250, 100));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Acciones:"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdCrear.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdCrear.setText("Crear");
         cmdCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdCrearActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 27, 75, 30));
+        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 110, 30));
 
-        cmdLlenadoAuto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdLlenadoAuto.setText("LlenarAuto");
         cmdLlenadoAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdLlenadoAutoActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenadoAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 27, 110, 30));
+        jPanel3.add(cmdLlenadoAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 25, 100, 30));
 
-        cmdLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmdLimpiar.setText("Limpiar");
         cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdLimpiarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 100, 30));
-
-        cmdCalcular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmdCalcular.setText("Calcular");
-        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCalcularActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 70, 75, 30));
+        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 65, 100, 30));
 
         cmdLlenadoManual.setText("LlenarManual");
         cmdLlenadoManual.addActionListener(new java.awt.event.ActionListener() {
@@ -132,9 +112,9 @@ public class Principal extends javax.swing.JFrame {
                 cmdLlenadoManualActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLlenadoManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 70, 110, 30));
+        jPanel3.add(cmdLlenadoManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 65, 110, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 250, 160));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 250, 110));
 
         tblTablaResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,7 +126,7 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTablaResultado);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 250, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 250, 190));
 
         tblTablaInicial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,33 +138,48 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTablaInicial);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 250, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 250, 190));
+
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Secundaria", "Triangular Superior", "Triangular Inferior", "Matriz Traspuesta", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
+        jPanel1.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 150, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Operación:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
+
+        cmdCalcular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(641, 521));
+        setSize(new java.awt.Dimension(707, 461));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
         // TODO add your handling code here:
         try {
-            int nc, nf, op;
+            int nc, nf;
             DefaultTableModel tm, tm2;
             nf = Integer.parseInt(txtNumeroFilas.getText());
             nc = Integer.parseInt(txtNumeroColumnas.getText());
             tm = (DefaultTableModel) tblTablaInicial.getModel();
             tm2 = (DefaultTableModel) tblTablaResultado.getModel();
-            op = cmbOperacion.getSelectedIndex();
             if (nf < 2 || nc < 2) {
                 Helper.mensaje(this, "Por favor considere 2 como el mínimo para filas y columnas.", 2);
                 txtNumeroFilas.setText("");
@@ -197,32 +192,12 @@ public class Principal extends javax.swing.JFrame {
                 txtNumeroColumnas.setText("");
                 txtNumeroFilas.requestFocusInWindow();
             }
-            else if ((nf != nc) && op < 3) {
-                Helper.mensaje(this, "Para la operación elegida, el número de filas debe ser igual al número de columnas.", 3);
-                txtNumeroFilas.setText("");
-                txtNumeroColumnas.setText("");
-                txtNumeroFilas.requestFocusInWindow();
-            }
-            else if (op == 4 && (nf < 4 || nc < 4)) {
-                Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra A.", 2);
-                txtNumeroFilas.setText("");
-                txtNumeroColumnas.setText("");
-                txtNumeroFilas.requestFocusInWindow();
-            }
             else {
                 Helper.mensaje(this, "Matriz creada exitosamente.", 1);
-                if (op == 3) {
-                    tm.setRowCount(nf);
-                    tm.setColumnCount(nc);
-                    tm2.setRowCount(nc);
-                    tm2.setColumnCount(nf);
-                }
-                else {
-                    tm.setRowCount(nf);
-                    tm.setColumnCount(nc);
-                    tm2.setRowCount(nf);
-                    tm2.setColumnCount(nc);
-                }
+                tm.setRowCount(nf);
+                tm.setColumnCount(nc);
+                tm2.setRowCount(nf);
+                tm2.setColumnCount(nc);
                 txtNumeroFilas.setEditable(false);
                 txtNumeroColumnas.setEditable(false);
                 JButton botonesT[] = {cmdLlenadoManual, cmdLlenadoAuto, cmdLimpiar};
@@ -258,28 +233,72 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         // TODO add your handling code here:
-        int op;
-        op = cmbOperacion.getSelectedIndex();
         Helper.limpiadoTabla(tblTablaResultado);
+        int nf, nc, op;
+        DefaultTableModel tm2;
+        nf = Integer.parseInt(txtNumeroFilas.getText());
+        nc = Integer.parseInt(txtNumeroColumnas.getText());
+        tm2 = (DefaultTableModel)tblTablaResultado.getModel();
+        tm2.setRowCount(nf);
+        tm2.setColumnCount(nc);
+        op = cmbOperacion.getSelectedIndex();
         switch (op) {
             case 0:
-                Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para visualizar la diagonal secundaria, el número de filas debe ser igual al número de columnas.", 3);
+                }
+                else {
+                    Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 1:
-                Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para visualizar la triangular superior, el número de filas debe ser igual al número de columnas.", 3);
+                }
+                else {
+                    Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 2:
-                Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para visualizar la triangular inferior, el número de filas debe ser igual al número de columnas.", 3);
+                }
+                else {
+                    Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 3:
+                tm2.setRowCount(nc);
+                tm2.setColumnCount(nf);
                 Helper.matrizTraspuesta(tblTablaInicial, tblTablaResultado);
                 break;
             case 4:
-                Helper.letraA(tblTablaInicial, tblTablaResultado);
+                if (nf < 4 || nc < 4) {
+                    Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra A.", 2);
+                }
+                else {
+                    Helper.letraA(tblTablaInicial, tblTablaResultado);
+                }
+                break;
+            case 5:
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para visualizar la Z, el número de filas debe ser igual al número de columnas.", 3);
+                }
+                else {
+                    Helper.letraZ(tblTablaInicial, tblTablaResultado);
+                }
+                break;
+            case 6:
+                if (nc % 2 == 0) {
+                    Helper.mensaje(this, "Para visualizar la T, el número de columnas debe ser impar.", 3);
+                }
+                else {
+                    Helper.letraT(tblTablaInicial, tblTablaResultado);
+                }
                 break;
         }
         JButton botonesT[] = {cmdLimpiar};
-        JButton botonesF[] = {cmdCalcular, cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
+        JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
         Helper.habilitarBotones(botonesT);
         Helper.deshabilitarBotones(botonesF);
 
