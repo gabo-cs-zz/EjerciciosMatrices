@@ -320,6 +320,15 @@ public class Principal extends javax.swing.JFrame {
                 else {
                     Helper.letraE(tblTablaInicial, tblTablaResultado);
                 }
+                break;
+            case 9:
+                if (nf < 4 || nc < 4) {
+                    Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra F.", 2);
+                }
+                else {
+                    Helper.letraF(tblTablaInicial, tblTablaResultado);
+                }
+                break;
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
