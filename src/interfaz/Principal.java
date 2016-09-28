@@ -284,6 +284,9 @@ public class Principal extends javax.swing.JFrame {
                 if (nf != nc) {
                     Helper.mensaje(this, "Para visualizar la Z, el número de filas debe ser igual al número de columnas.", 3);
                 }
+                else if (nf < 4 || nc < 4) {
+                    Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra Z.", 2);
+                }
                 else {
                     Helper.letraZ(tblTablaInicial, tblTablaResultado);
                 }
@@ -304,6 +307,19 @@ public class Principal extends javax.swing.JFrame {
                     Helper.letraV(tblTablaInicial, tblTablaResultado);
                 }
                 break;
+            case 8:
+                if (nf % 2 == 0) {
+                    Helper.mensaje(this, "Para visualizar la E, el número de filas debe ser impar.", 3);
+                }
+                else if (nf < 4) {
+                    Helper.mensaje(this, "Por favor considere 5 como el mínimo de filas para formar la letra E.", 2);
+                }
+                else if (nc < 3) {
+                    Helper.mensaje(this, "Por favor considere 3 como el mínimo de columnas para formar la letra E.", 2);
+                }
+                else {
+                    Helper.letraE(tblTablaInicial, tblTablaResultado);
+                }
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};

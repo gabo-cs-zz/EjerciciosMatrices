@@ -167,4 +167,18 @@ public class Helper {
         }
     }
     
+    public static void letraE(JTable tabla1, JTable tabla2) {
+        int nf, nc, aux;
+        nf = tabla1.getRowCount();
+        nc = tabla1.getColumnCount();
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (i == 0 || j == 0 || i == nf/2 ||i == nf - 1) {
+                    tabla2.setValueAt(aux, i, j);
+                }
+            }
+        }
+    }
+    
 }
