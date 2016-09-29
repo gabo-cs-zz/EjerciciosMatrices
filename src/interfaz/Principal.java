@@ -356,6 +356,25 @@ public class Principal extends javax.swing.JFrame {
                     Helper.letraN(tblTablaInicial, tblTablaResultado);
                 }
                 break;
+            case 13:
+                if ((nf % 2 == 0 && nc % 2 == 0) || (nf != nc)) {
+                    Helper.mensaje(this, "Para visualizar la Y, el número de filas y columnas deben ser iguales e impares.", 3);
+                }
+                else {
+                    Helper.letraY(tblTablaInicial, tblTablaResultado);
+                }
+                break;
+            case 14:
+                if (nf != nc) {
+                    Helper.mensaje(this, "Para visualizar la letra X, el número de filas debe ser igual al número de columnas.", 3);
+                }
+                else if (nf < 4 || nc < 4) {
+                    Helper.mensaje(this, "Por favor considere 4 como el mínimo de filas y columnas para formar la letra X.", 2);
+                }
+                else {
+                    Helper.letraX(tblTablaInicial, tblTablaResultado);
+                }
+                break;
         }
         JButton botonesT[] = {cmdLimpiar};
         JButton botonesF[] = {cmdCrear, cmdLlenadoManual, cmdLlenadoAuto};
